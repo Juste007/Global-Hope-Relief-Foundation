@@ -56,7 +56,6 @@
       background: #f7931a;
     }
 
-    /* bouton copy */
     .copy-btn {
       margin-top: 10px;
       padding: 12px;
@@ -75,7 +74,6 @@
       100% { opacity: 1; }
     }
 
-    /* zone crypto cachée */
     #cryptoBox {
       display: none;
       margin-top: 15px;
@@ -90,18 +88,35 @@
 <body>
 
 <div class="container">
+
   <h1>Support Aid</h1>
-  <p>Your support helps provide food and essential needs to people in difficult conditions.</p>
+
+  <p style="font-weight:bold; color:#333;">
+    Help provide food and essential support to families in need.
+  </p>
+
+  <p>
+    Every contribution makes a real difference. Your support helps deliver basic necessities quickly and securely.
+  </p>
+
+  <p style="color:red; font-size:13px;">
+    ⚠️ Urgent support needed – every contribution counts
+  </p>
 
   <!-- STRIPE -->
   <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card">
-    ❤️ Donate Securely (Card)
+    ❤️ Donate Now (Secure Payment)
   </a>
 
   <!-- CRYPTO BUTTON -->
   <button id="cryptoBtn" class="btn crypto">
-    🪙 Send Crypto Instantly (USDT)
+    🪙 Send Crypto Instantly
   </button>
+
+  <!-- INFO TRUST -->
+  <p style="font-size:12px;">
+    Secure • Fast • Global access
+  </p>
 
   <!-- CRYPTO BOX -->
   <div id="cryptoBox">
