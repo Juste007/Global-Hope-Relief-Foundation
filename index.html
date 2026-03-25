@@ -45,6 +45,7 @@
       color: white;
       font-weight: bold;
       cursor: pointer;
+      border: none;
     }
 
     .card {
@@ -98,14 +99,13 @@
   </a>
 
   <!-- CRYPTO BUTTON -->
-  <button onclick="showCrypto()" class="btn crypto">
+  <button id="cryptoBtn" class="btn crypto">
     🪙 Send Crypto Instantly (USDT)
   </button>
 
   <!-- CRYPTO BOX -->
   <div id="cryptoBox">
 
-    <!-- QR CODE -->
     <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1" width="150">
 
     <p style="font-size:12px;">
@@ -121,4 +121,37 @@
       Minimum recommended: 5 USDT
     </p>
 
-    <button onclick="copyAddress()" class="
+    <button id="copyBtn" class="copy-btn">
+      Copy Address
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+  var cryptoBtn = document.getElementById("cryptoBtn");
+  var cryptoBox = document.getElementById("cryptoBox");
+  var copyBtn = document.getElementById("copyBtn");
+
+  cryptoBtn.addEventListener("click", function() {
+    if (cryptoBox.style.display === "block") {
+      cryptoBox.style.display = "none";
+    } else {
+      cryptoBox.style.display = "block";
+    }
+  });
+
+  copyBtn.addEventListener("click", function() {
+    var text = document.getElementById("usdt").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Address copied!");
+  });
+
+});
+</script>
+
+</body>
+</html>
