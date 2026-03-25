@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Support Aid</title>
+
   <style>
     body {
       margin: 0;
@@ -14,6 +15,7 @@
       align-items: center;
       height: 100vh;
     }
+
     .container {
       background: white;
       padding: 30px;
@@ -23,14 +25,17 @@
       max-width: 400px;
       width: 100%;
     }
+
     h1 {
       margin-bottom: 10px;
       color: #333;
     }
+
     p {
       color: #666;
       font-size: 14px;
     }
+
     .btn {
       display: block;
       margin: 15px 0;
@@ -39,44 +44,81 @@
       text-decoration: none;
       color: white;
       font-weight: bold;
+      cursor: pointer;
     }
+
     .card {
       background: #4CAF50;
     }
+
     .crypto {
       background: #f7931a;
     }
+
+    /* bouton copy */
+    .copy-btn {
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      animation: blink 1s infinite;
+    }
+
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
+
+    /* zone crypto cachée */
+    #cryptoBox {
+      display: none;
+      margin-top: 15px;
+    }
+
+    img {
+      margin-top: 10px;
+    }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>Support Aid</h1>
-    <p>Your support helps provide food and essential needs to people in difficult conditions.</p>
 
-    <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card">❤️ Donate Securely (Card)</a>
+<div class="container">
+  <h1>Support Aid</h1>
+  <p>Your support helps provide food and essential needs to people in difficult conditions.</p>
 
-    <a class="btn crypto">🪙 Donate with Crypto (USDT)</a>
+  <!-- STRIPE -->
+  <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card">
+    ❤️ Donate Securely (Card)
+  </a>
 
-<p style="font-size:12px; margin-top:10px;">
-USDT (TRC20): <br>
-<b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b>
-</p>
+  <!-- CRYPTO BUTTON -->
+  <button onclick="showCrypto()" class="btn crypto">
+    🪙 Send Crypto Instantly (USDT)
+  </button>
 
-<p style="font-size:11px; color:gray;">
-Network: TRC20 (low fees)
-</p>
+  <!-- CRYPTO BOX -->
+  <div id="cryptoBox">
 
-<button onclick="copyAddress()" style="margin-top:10px; padding:10px; border:none; border-radius:8px; background:#333; color:white;">
-Copy Address
-</button>
+    <!-- QR CODE -->
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1" width="150">
 
-<script>
-function copyAddress() {
-  var text = document.getElementById("usdt").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Address copied!");
-}
-</script>
-  </div>
-</body>
-</html>
+    <p style="font-size:12px;">
+      USDT (TRC20): <br>
+      <b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b>
+    </p>
+
+    <p style="font-size:11px; color:gray;">
+      Network: TRC20 (low fees)
+    </p>
+
+    <p style="font-size:11px;">
+      Minimum recommended: 5 USDT
+    </p>
+
+    <button onclick="copyAddress()" class="
