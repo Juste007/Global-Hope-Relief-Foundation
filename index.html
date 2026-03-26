@@ -1,142 +1,171 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Support Aid</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support Aid</title>
 
-<style>
-body {
-  margin:0;
-  font-family: Arial;
-  background:#f4f6f8;
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f5f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
 
-.container {
-  max-width:420px;
-  margin:auto;
-  padding:20px;
-  text-align:center;
-}
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+    }
 
-.card {
-  background:white;
-  padding:25px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-}
+    h1 {
+      margin-bottom: 10px;
+      color: #333;
+    }
 
-h1 {
-  margin:10px 0;
-}
+    p {
+      color: #666;
+      font-size: 14px;
+    }
 
-.highlight {
-  color:#28a745;
-  font-weight:bold;
-}
+    .btn {
+      display: block;
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+    }
 
-.urgent {
-  color:red;
-  font-size:13px;
-  margin:10px 0;
-}
+    .card {
+      background: #4CAF50;
+    }
 
-.btn {
-  display:block;
-  margin:12px 0;
-  padding:14px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-}
+    .crypto {
+      background: #f7931a;
+    }
 
-.card-btn { background:#28a745; }
-.crypto-btn { background:#f7931a; }
+    .copy-btn {
+      margin-top: 10px;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      background: #28a745;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      animation: blink 1s infinite;
+    }
 
-.copy-btn {
-  margin-top:10px;
-  padding:12px;
-  background:#28a745;
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-weight:bold;
-  animation:blink 1s infinite;
-}
+    @keyframes blink {
+      0% { opacity: 1; }
+      50% { opacity: 0.85; }
+      100% { opacity: 1; }
+    }
 
-@keyframes blink {
-  50% { opacity:0.85; }
-}
+    #cryptoBox {
+      display: none;
+      margin-top: 15px;
+    }
 
-#cryptoBox { display:none; }
-
-.trust {
-  font-size:12px;
-  color:gray;
-  margin-top:10px;
-}
-</style>
+    img {
+      margin-top: 10px;
+    }
+  </style>
 </head>
 
 <body>
 
 <div class="container">
-<div class="card">
 
-<h1>Support Aid</h1>
+  <h1>Support Aid</h1>
 
-<p class="highlight">
-Help provide food & essentials to families in need
-</p>
+  <p style="font-weight:bold; color:#333;">
+    Help provide food and essential support to families in need.
+  </p>
 
-<p>
-Every contribution directly supports people facing difficult conditions.
-</p>
+  <p>
+    Every contribution makes a real difference. Your support helps deliver basic necessities quickly and securely.
+  </p>
 
-<p class="urgent">
-⚠️ Urgent support needed — every donation counts
-</p>
+  <p style="color:red; font-size:13px;">
+    ⚠️ Urgent support needed – every contribution counts
+  </p>
 
-<a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card-btn">
-❤️ Donate securely (Card)
-</a>
+  <!-- STRIPE -->
+  <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card">
+    ❤️ Donate Now (Secure Payment)
+  </a>
 
-<button id="cryptoBtn" class="btn crypto-btn">
-🪙 Send Crypto Instantly
-</button>
+  <!-- CRYPTO BUTTON -->
+  <button id="cryptoBtn" class="btn crypto">
+    🪙 Send Crypto Instantly
+  </button>
 
-<p class="trust">
-Secure • Fast • Global
-</p>
+  <!-- INFO TRUST -->
+  <p style="font-size:12px;">
+    Secure • Fast • Global access
+  </p>
 
-<div id="cryptoBox">
+  <!-- CRYPTO BOX -->
+  <div id="cryptoBox">
 
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
+    <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1" width="150">
 
-<p>
-USDT (TRC20):<br>
-<b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b>
-</p>
+    <p style="font-size:12px;">
+      USDT (TRC20): <br>
+      <b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b>
+    </p>
 
-<button id="copyBtn" class="copy-btn">Copy Address</button>
+    <p style="font-size:11px; color:gray;">
+      Network: TRC20 (low fees)
+    </p>
 
-</div>
+    <p style="font-size:11px;">
+      Minimum recommended: 5 USDT
+    </p>
 
-</div>
+    <button id="copyBtn" class="copy-btn">
+      Copy Address
+    </button>
+
+  </div>
+
 </div>
 
 <script>
-document.getElementById("cryptoBtn").onclick = function(){
-  var box = document.getElementById("cryptoBox");
-  box.style.display = box.style.display === "block" ? "none" : "block";
-}
+document.addEventListener("DOMContentLoaded", function() {
 
-document.getElementById("copyBtn").onclick = function(){
-  var text = document.getElementById("usdt").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Copied!");
-}
+  var cryptoBtn = document.getElementById("cryptoBtn");
+  var cryptoBox = document.getElementById("cryptoBox");
+  var copyBtn = document.getElementById("copyBtn");
+
+  cryptoBtn.addEventListener("click", function() {
+    if (cryptoBox.style.display === "block") {
+      cryptoBox.style.display = "none";
+    } else {
+      cryptoBox.style.display = "block";
+    }
+  });
+
+  copyBtn.addEventListener("click", function() {
+    var text = document.getElementById("usdt").innerText;
+    navigator.clipboard.writeText(text);
+    alert("Address copied!");
+  });
+
+});
 </script>
 
 </body>
