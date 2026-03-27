@@ -17,7 +17,7 @@ body {
 }
 
 .container {
-  max-width:420px;
+  max-width:430px;
   width:100%;
   padding:20px;
 }
@@ -42,29 +42,15 @@ h1 {
 .subtitle {
   color:#28a745;
   font-weight:bold;
-  font-size:18px;
 }
 
-.intro {
-  font-size:14px;
-  color:#444;
-  margin-top:10px;
-}
-
-.urgent {
-  color:red;
-  font-size:13px;
-  margin-top:10px;
-}
-
-.trust {
-  color:green;
+.section-title {
+  margin-top:20px;
   font-weight:bold;
-  font-size:13px;
 }
 
 .small {
-  font-size:12px;
+  font-size:13px;
   color:#555;
   margin-top:10px;
 }
@@ -89,15 +75,12 @@ h1 {
   color:white;
   border:none;
   border-radius:10px;
-  font-weight:bold;
-  animation:blink 1s infinite;
 }
 
-@keyframes blink {
-  50% { opacity:0.8; }
+#cryptoBox {
+  display:none;
+  margin-top:15px;
 }
-
-#cryptoBox { display:none; margin-top:15px; }
 </style>
 </head>
 
@@ -110,27 +93,16 @@ h1 {
 
 <h1>Emergency Support Fund</h1>
 
-<p class="intro">
-Helping families affected by difficult conditions access basic food and essential support.
-</p>
-
 <p class="subtitle">
 Providing urgent food and basic support to families in need
 </p>
 
-<p>
-Some families cannot afford basic food.<br>
-You can help today.<br>
-Even $1 can make a real difference ❤️
+<p class="small">
+This initiative focuses on delivering essential assistance such as food and basic supplies to individuals facing difficult conditions.
 </p>
 
-<p class="urgent">⚠️ Urgent support needed today</p>
-
-<p class="trust">✔️ Secure donation worldwide</p>
-<p class="trust">✔️ Trusted by global supporters</p>
-
-<p style="font-size:13px;">
-People around the world are supporting this initiative
+<p class="small">
+Every contribution helps support access to daily necessities.
 </p>
 
 <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card-btn">
@@ -141,34 +113,37 @@ People around the world are supporting this initiative
 🪙 Donate with Crypto (USDT)
 </button>
 
-<p style="font-size:12px; color:#777;">
-Your support helps provide real assistance to people in need.
+<p style="font-size:12px; color:gray;">
+Secure checkout • Worldwide support
 </p>
 
-<p style="font-size:11px; color:gray;">
-Takes less than 30 seconds • Secure checkout
-</p>
-
+<!-- CRYPTO -->
 <div id="cryptoBox">
 <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
 <p><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
 <button id="copyBtn" class="copy-btn">Copy Address</button>
 </div>
 
+<!-- MISSION -->
+<p class="section-title">Our mission</p>
 <p class="small">
-We are an independent initiative providing support to people in need.
+To provide basic support and assistance to people in need through voluntary contributions.
+</p>
+
+<!-- TRANSPARENCE -->
+<p class="section-title">Transparency</p>
+<p class="small">
+Donations are voluntary and used for general assistance efforts including food and essential needs.
+</p>
+
+<!-- CONTACT -->
+<p class="section-title">Contact</p>
+<p class="small">
+support@supportaids.org
 </p>
 
 <p class="small">
-Donations are voluntary and used for general assistance efforts.
-</p>
-
-<p class="small">
-Contact: support@supportaids.org
-</p>
-
-<p class="small">
-<a href="about.html">About this initiative</a>
+<a href="about.html">Learn more about this initiative</a>
 </p>
 
 </div>
