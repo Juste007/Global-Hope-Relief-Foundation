@@ -35,10 +35,6 @@ body {
   margin-bottom:15px;
 }
 
-h1 {
-  margin:10px 0;
-}
-
 .subtitle {
   color:#28a745;
   font-weight:bold;
@@ -47,7 +43,6 @@ h1 {
 .urgent {
   color:red;
   font-size:13px;
-  margin:10px 0;
 }
 
 .trust {
@@ -56,15 +51,10 @@ h1 {
   font-size:13px;
 }
 
-.social-proof {
-  margin-top:10px;
-  font-size:13px;
-}
-
 .small {
   font-size:12px;
   color:#555;
-  margin-top:12px;
+  margin-top:10px;
 }
 
 .btn {
@@ -77,14 +67,8 @@ h1 {
   font-weight:bold;
 }
 
-.card-btn {
-  background:#28a745;
-}
-
-.crypto-btn {
-  background:#f7931a;
-  border:none;
-}
+.card-btn { background:#28a745; }
+.crypto-btn { background:#f7931a; border:none; }
 
 .copy-btn {
   margin-top:10px;
@@ -101,10 +85,7 @@ h1 {
   50% { opacity:0.8; }
 }
 
-#cryptoBox {
-  display:none;
-  margin-top:15px;
-}
+#cryptoBox { display:none; margin-top:15px; }
 </style>
 </head>
 
@@ -113,7 +94,6 @@ h1 {
 <div class="container">
 <div class="card">
 
-<!-- LOGO -->
 <img src="logo.png" class="logo">
 
 <h1>Emergency Support Fund</h1>
@@ -128,14 +108,12 @@ You can help today.<br>
 Even $1 can make a real difference ❤️
 </p>
 
-<p class="urgent">
-⚠️ Urgent support needed today
-</p>
+<p class="urgent">⚠️ Urgent support needed today</p>
 
 <p class="trust">✔️ Secure donation worldwide</p>
 <p class="trust">✔️ Trusted by global supporters</p>
 
-<p class="social-proof">
+<p style="font-size:13px;">
 People around the world are supporting this initiative
 </p>
 
@@ -151,29 +129,26 @@ People around the world are supporting this initiative
 Takes less than 30 seconds • Secure checkout
 </p>
 
-<!-- CRYPTO BOX -->
 <div id="cryptoBox">
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1" width="150">
-
-<p>
-USDT (TRC20):<br>
-<b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b>
-</p>
-
-<button id="copyBtn" class="copy-btn">
-Copy Address
-</button>
-
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
+<p><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
+<button id="copyBtn" class="copy-btn">Copy Address</button>
 </div>
 
-<!-- TRANSPARENCE -->
 <p class="small">
 We are an independent initiative providing support to people in need.
 </p>
 
 <p class="small">
 Donations are voluntary and used for general assistance efforts.
+</p>
+
+<p class="small">
+Contact: support@supportaids.org
+</p>
+
+<p class="small">
+<a href="about.html">About this initiative</a>
 </p>
 
 </div>
