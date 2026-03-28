@@ -8,7 +8,7 @@
 <style>
 body {
   margin:0;
-  font-family: Arial, sans-serif;
+  font-family:Arial, sans-serif;
   background:#f4f6f8;
   display:flex;
   justify-content:center;
@@ -31,8 +31,7 @@ body {
 }
 
 .logo {
-  width:90px;
-  margin-bottom:15px;
+  width:80px;
 }
 
 .subtitle {
@@ -40,55 +39,36 @@ body {
   font-weight:bold;
 }
 
-.section-title {
-  margin-top:15px;
+.btn {
+  display:block;
+  margin:12px 0;
+  padding:15px;
+  border-radius:12px;
+  text-decoration:none;
+  color:white;
   font-weight:bold;
+  font-size:16px;
 }
+
+.card-btn { background:#28a745; }
+.crypto-btn { background:#f7931a; }
 
 .small {
   font-size:13px;
   color:#555;
 }
 
-.btn {
-  display:block;
-  margin:12px 0;
-  padding:14px;
-  border-radius:10px;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-}
-
-.card-btn { background:#28a745; }
-.crypto-btn { background:#f7931a; border:none; }
-
-.copy-btn {
-  margin-top:10px;
-  padding:12px;
-  background:#28a745;
-  color:white;
-  border:none;
-  border-radius:10px;
-  font-weight:bold;
-}
-
-#cryptoBox {
-  display:none;
+.section {
   margin-top:15px;
 }
 
-/* Notification */
-#notif {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:white;
-  padding:10px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-  font-size:12px;
-  display:none;
+footer {
+  margin-top:20px;
+  background:#0b1b3f;
+  color:white;
+  padding:20px;
+  border-radius:15px;
+  font-size:13px;
 }
 </style>
 </head>
@@ -107,115 +87,83 @@ Providing urgent food and basic support to families in need
 </p>
 
 <p class="small">
-Helping families access essential food and basic needs.
-Every contribution makes a real difference.
+Thousands of families struggle to access basic food every day.
+Your support can help provide essential assistance.
 </p>
 
-<p style="color:red; font-size:13px;">
-⚠️ Urgent support needed today
-</p>
+<p style="color:red;">⚠️ Urgent support needed today</p>
 
-<p style="color:green; font-weight:bold; font-size:13px;">
-✔️ Secure donation worldwide
-</p>
+<p style="color:green;">✔️ Secure donations worldwide</p>
+<p style="color:green;">✔️ Trusted by global supporters</p>
 
-<p style="color:green; font-weight:bold; font-size:13px;">
-✔️ Trusted by global supporters
+<!-- IMPACT -->
+<div class="section">
+<b>Impact</b>
+<p class="small">
+✔️ Food support distributed  
+✔️ Essential needs assistance  
+✔️ Helping families in difficult conditions
 </p>
-
-<!-- LIVE ACTIVITY -->
-<div id="liveBox" style="margin-top:10px; font-size:12px; color:#28a745;">
-✔️ Recent support activity worldwide
 </div>
 
 <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card-btn">
 ❤️ Donate securely (Card)
 </a>
 
-<button id="cryptoBtn" class="btn crypto-btn">
+<button onclick="toggleCrypto()" class="btn crypto-btn">
 🪙 Donate with Crypto (USDT)
 </button>
 
-<p style="font-size:12px; color:#777;">
-Your support helps provide real assistance to people in need.
-</p>
-
-<p style="font-size:11px; color:gray;">
-Takes less than 30 seconds • Secure checkout
-</p>
-
-<div id="cryptoBox">
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
-<p><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
-<button id="copyBtn" class="copy-btn">Copy Address</button>
+<div id="cryptoBox" style="display:none;">
+<p class="small"><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
+<button onclick="copyAddress()">Copy Address</button>
 </div>
 
-<p class="section-title">Our mission</p>
-<p class="small">
-To provide essential support such as food and basic needs to individuals facing difficult conditions.
-</p>
+<p class="small">Takes less than 30 seconds • Secure checkout</p>
 
-<p class="section-title">Transparency</p>
+<!-- TRANSPARENCY -->
+<div class="section">
+<b>Transparency</b>
 <p class="small">
-Donations are voluntary and used for general assistance efforts.
+Donations are voluntary and used to support general assistance efforts.
 </p>
-
-<p class="section-title">Contact</p>
-<p class="small">
-support@supportaids.org
-</p>
-
-<p class="small">
-<a href="about.html">Learn more about this initiative</a>
-</p>
-
-</div>
 </div>
 
-<!-- NOTIFICATION -->
-<div id="notif">
-✔️ Someone just made a contribution
+<!-- CONTACT -->
+<div class="section">
+<b>Contact</b>
+<p class="small">support@supportaids.org</p>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+<p><b>About</b></p>
+<p>We provide essential support to individuals facing difficult conditions worldwide.</p>
+
+<p><b>Legal</b></p>
+<p>Privacy Policy • Terms of Use • Cookies</p>
+
+<p><b>Resources</b></p>
+<p>Transparency • FAQ • How donations are used</p>
+
+<p style="margin-top:10px;">© 2026 Emergency Support Fund</p>
+</footer>
+
 </div>
 
 <script>
-document.getElementById("cryptoBtn").onclick = function(){
+function toggleCrypto(){
   var box = document.getElementById("cryptoBox");
   box.style.display = box.style.display === "block" ? "none" : "block";
 }
 
-document.getElementById("copyBtn").onclick = function(){
+function copyAddress(){
   var text = document.getElementById("usdt").innerText;
   navigator.clipboard.writeText(text);
   alert("Address copied!");
 }
-
-/* LIVE TEXT */
-var messages = [
-  "✔️ Someone just supported this initiative",
-  "✔️ A contribution was received recently",
-  "✔️ Supporters are helping right now",
-  "✔️ New donation activity detected",
-  "✔️ People are contributing worldwide"
-];
-
-function changeMessage() {
-  var random = Math.floor(Math.random() * messages.length);
-  document.getElementById("liveBox").innerText = messages[random];
-}
-
-setInterval(changeMessage, 4000);
-
-/* NOTIFICATION */
-function showNotif(){
-  var notif = document.getElementById("notif");
-  notif.style.display = "block";
-
-  setTimeout(function(){
-    notif.style.display = "none";
-  }, 3000);
-}
-
-setInterval(showNotif, 8000);
 </script>
 
 </body>
