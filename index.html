@@ -32,6 +32,7 @@ body {
 
 .logo {
   width:80px;
+  margin-bottom:10px;
 }
 
 .subtitle {
@@ -51,7 +52,7 @@ body {
 }
 
 .card-btn { background:#28a745; }
-.crypto-btn { background:#f7931a; }
+.crypto-btn { background:#f7931a; border:none; }
 
 .small {
   font-size:13px;
@@ -70,6 +71,27 @@ footer {
   border-radius:15px;
   font-size:13px;
 }
+
+footer a {
+  color:white;
+  text-decoration:none;
+}
+
+footer a:hover {
+  text-decoration:underline;
+}
+
+#notif {
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:white;
+  padding:10px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+  font-size:12px;
+  display:none;
+}
 </style>
 </head>
 
@@ -87,7 +109,7 @@ Providing urgent food and basic support to families in need
 </p>
 
 <p class="small">
-Thousands of families struggle to access basic food every day.
+Thousands of families struggle to access basic food daily.
 Your support can help provide essential assistance.
 </p>
 
@@ -96,12 +118,15 @@ Your support can help provide essential assistance.
 <p style="color:green;">✔️ Secure donations worldwide</p>
 <p style="color:green;">✔️ Trusted by global supporters</p>
 
-<!-- IMPACT -->
+<div id="liveBox" style="margin-top:10px; font-size:12px; color:#28a745;">
+✔️ Recent support activity worldwide
+</div>
+
 <div class="section">
 <b>Impact</b>
 <p class="small">
-✔️ Food support distributed  
-✔️ Essential needs assistance  
+✔️ Food assistance<br>
+✔️ Basic needs support<br>
 ✔️ Helping families in difficult conditions
 </p>
 </div>
@@ -114,14 +139,30 @@ Your support can help provide essential assistance.
 🪙 Donate with Crypto (USDT)
 </button>
 
-<div id="cryptoBox" style="display:none;">
+<div id="cryptoBox" style="display:none; margin-top:15px;">
 <p class="small"><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
-<button onclick="copyAddress()">Copy Address</button>
+
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1"
+style="border-radius:10px;">
+
+<p style="font-size:11px; color:gray;">
+Network: TRC20 (low fees)
+</p>
+
+<button onclick="copyAddress()" style="
+margin-top:10px;
+padding:10px;
+background:#28a745;
+color:white;
+border:none;
+border-radius:8px;
+font-weight:bold;">
+Copy Address
+</button>
 </div>
 
 <p class="small">Takes less than 30 seconds • Secure checkout</p>
 
-<!-- TRANSPARENCY -->
 <div class="section">
 <b>Transparency</b>
 <p class="small">
@@ -129,7 +170,6 @@ Donations are voluntary and used to support general assistance efforts.
 </p>
 </div>
 
-<!-- CONTACT -->
 <div class="section">
 <b>Contact</b>
 <p class="small">support@supportaids.org</p>
@@ -137,21 +177,30 @@ Donations are voluntary and used to support general assistance efforts.
 
 </div>
 
-<!-- FOOTER -->
 <footer>
 <p><b>About</b></p>
-<p>We provide essential support to individuals facing difficult conditions worldwide.</p>
+<p><a href="about.html">About this initiative</a></p>
 
 <p><b>Legal</b></p>
-<p>Privacy Policy • Terms of Use • Cookies</p>
+<p>
+<a href="privacy.html">Privacy Policy</a> •
+<a href="terms.html">Terms of Use</a> •
+<a href="cookies.html">Cookies</a>
+</p>
 
 <p><b>Resources</b></p>
-<p>Transparency • FAQ • How donations are used</p>
+<p>
+<a href="transparency.html">Transparency</a> •
+<a href="faq.html">FAQ</a> •
+<a href="usage.html">How donations are used</a>
+</p>
 
 <p style="margin-top:10px;">© 2026 Emergency Support Fund</p>
 </footer>
 
 </div>
+
+<div id="notif">✔️ Someone just made a contribution</div>
 
 <script>
 function toggleCrypto(){
@@ -164,6 +213,25 @@ function copyAddress(){
   navigator.clipboard.writeText(text);
   alert("Address copied!");
 }
+
+var messages = [
+  "✔️ Someone just supported this initiative",
+  "✔️ A contribution was received",
+  "✔️ Supporters are helping now",
+  "✔️ New donation activity",
+  "✔️ People are contributing worldwide"
+];
+
+setInterval(function(){
+  document.getElementById("liveBox").innerText =
+  messages[Math.floor(Math.random()*messages.length)];
+}, 4000);
+
+setInterval(function(){
+  var notif = document.getElementById("notif");
+  notif.style.display="block";
+  setTimeout(()=>notif.style.display="none",3000);
+}, 8000);
 </script>
 
 </body>
