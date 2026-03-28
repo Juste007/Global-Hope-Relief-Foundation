@@ -92,6 +92,17 @@ footer a:hover {
   font-size:12px;
   display:none;
 }
+@keyframes blink {
+  0% { opacity:1; }
+  50% { opacity:0.4; }
+  100% { opacity:1; }
+}
+
+.blink {
+  animation: blink 1.2s infinite;
+  color:#e74c3c;
+  font-weight:bold;
+}
 </style>
 </head>
 
@@ -112,7 +123,7 @@ Some families struggle to access basic food every day.
 Your support can help provide real meals today ❤️
 </p>
 
-<p style="font-size:13px; color:#777;">
+<<p class="blink" style="font-size:13px;">
 Even $1 can make a real difference.
 </p>
 
