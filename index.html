@@ -24,20 +24,18 @@ body {
 
 .card {
   background:white;
-  padding:15px 25px 25px; /* 🔥 réduit espace haut */
+  padding:15px 25px 25px;
   border-radius:20px;
   box-shadow:0 10px 30px rgba(0,0,0,0.1);
   text-align:center;
 }
 
-/* 🔥 LOGO CORRIGÉ */
 .logo {
   width:100px;
   display:block;
   margin:0 auto -20px auto;
 }
 
-/* 🔥 TITRE CORRIGÉ */
 h1 {
   margin:0;
   line-height:1.1;
@@ -101,7 +99,7 @@ footer a:hover {
   display:none;
 }
 
-/* 🔥 TEXTE CLIGNOTANT */
+/* Clignotant */
 @keyframes blink {
   0% { opacity:1; }
   50% { opacity:0.4; }
@@ -150,11 +148,8 @@ Your support can help provide essential assistance.
 <div id="liveBox" style="margin-top:10px; font-size:12px; color:#28a745;">
 ✔️ Recent support activity worldwide
 </div>
-<div id="donations" style="
-margin-top:8px;
-font-size:13px;
-color:#28a745;
-font-weight:bold;">
+
+<div id="donations" style="margin-top:8px; font-size:13px; color:#28a745; font-weight:bold;">
 ✔️ Recent contributions
 </div>
 
@@ -239,17 +234,20 @@ Donations are voluntary and used to support general assistance efforts.
 <div id="notif">✔️ Someone just made a contribution</div>
 
 <script>
+// Crypto toggle
 function toggleCrypto(){
   var box = document.getElementById("cryptoBox");
   box.style.display = box.style.display === "block" ? "none" : "block";
 }
 
+// Copy wallet
 function copyAddress(){
   var text = document.getElementById("usdt").innerText;
   navigator.clipboard.writeText(text);
   alert("Address copied!");
 }
 
+// Live activity messages
 var messages = [
   "✔️ Someone just supported this initiative",
   "✔️ A contribution was received",
@@ -262,12 +260,29 @@ setInterval(function(){
   document.getElementById("liveBox").innerText =
   messages[Math.floor(Math.random()*messages.length)];
 }, 4000);
-d.name
+
+// Notification popup
 setInterval(function(){
   var notif = document.getElementById("notif");
   notif.style.display="block";
   setTimeout(()=>notif.style.display="none",3000);
 }, 8000);
+
+// ===== GENERATEUR DE DON =====
+var firstNames = ["John","Emma","Michael","Sarah","David","Lucas","Sophia"];
+var lastNames = ["Smith","Brown","Johnson","Williams","Jones","Miller"];
+var amounts = [1,2,3,5,10];
+
+function showDonation(){
+  var name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " +
+             lastNames[Math.floor(Math.random()*lastNames.length)];
+  var amount = amounts[Math.floor(Math.random()*amounts.length)];
+
+  document.getElementById("donations").innerText =
+  "✔️ " + name + " just contributed $" + amount;
+}
+
+setInterval(showDonation, 4000);
 </script>
 
 </body>
