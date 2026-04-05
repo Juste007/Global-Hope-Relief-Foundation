@@ -1,225 +1,120 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Emergency Support Fund</title>
-
-<style>
-body {
-  margin:0;
-  font-family:Arial, sans-serif;
-  background:#f4f6f8;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  min-height:100vh;
-}
-
-.container {
-  max-width:430px;
-  width:100%;
-  padding:20px;
-}
-
-.card {
-  background:white;
-  padding:15px 25px 25px;
-  border-radius:20px;
-  box-shadow:0 10px 30px rgba(0,0,0,0.1);
-  text-align:center;
-}
-
-.logo {
-  width:100px;
-  display:block;
-  margin:0 auto -20px auto;
-}
-
-h1 { margin:0; }
-
-.subtitle {
-  color:#28a745;
-  font-weight:bold;
-}
-
-.btn {
-  display:block;
-  margin:12px 0;
-  padding:15px;
-  border-radius:12px;
-  text-decoration:none;
-  color:white;
-  font-weight:bold;
-}
-
-.card-btn { background:#28a745; }
-.crypto-btn { background:#f7931a; border:none; }
-
-.small { font-size:13px; color:#555; }
-
-footer {
-  margin-top:20px;
-  background:#0b1b3f;
-  color:white;
-  padding:20px;
-  border-radius:15px;
-  font-size:13px;
-}
-
-/* Clignotant */
-@keyframes blink {
-  0% { opacity:1; }
-  50% { opacity:0.4; }
-  100% { opacity:1; }
-}
-
-.blink {
-  animation: blink 1.5s infinite;
-  color:#007BFF;
-  font-weight:bold;
-}
-
-/* BULLE DONATEUR */
-#donBubble {
-  position:fixed;
-  top:10px;
-  left:50%;
-  transform:translateX(-50%);
-  background:#e6f0ea;
-  padding:12px 20px;
-  border-radius:30px;
-  font-weight:bold;
-  font-size:14px;
-  color:#0b1b3f;
-  box-shadow:0 5px 15px rgba(0,0,0,0.1);
-  display:none;
-  z-index:999;
-}
-</style>
-</head>
-
-<body>
-
-<div id="donBubble"></div>
-
-<div class="container">
-<div class="card">
-
-<img src="logo.png" class="logo">
-
-<h1 style="display:none;">Emergency Support Fund</h1>
-
-<p class="subtitle">
-Some families struggle to access basic food every day.
-</p>
-
-<p>Your support can help provide real meals today ❤️</p>
-
-<p class="blink">Even $1 can make a real difference.</p>
-
-<p class="small">
-Thousands of families struggle to access basic food daily.
-</p>
-
-<p style="color:red;">⚠️ Urgent support needed today</p>
-
-<p style="color:green;">✔️ Secure donations worldwide</p>
-<p style="color:green;">✔️ Trusted by global supporters</p>
-
-<div id="liveBox" style="margin-top:10px; font-size:12px; color:#28a745;">
-✔️ Recent support activity worldwide
-</div>
-
-<div id="donations" style="margin-top:8px; font-size:13px; color:#28a745; font-weight:bold;">
-✔️ Recent contributions
-</div>
-
-<a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card-btn">
-❤️ Donate securely (Card)
-</a>
-
-<button onclick="toggleCrypto()" class="btn crypto-btn">
-🪙 Donate with Crypto (USDT)
-</button>
-
-<div id="cryptoBox" style="display:none;">
-<p><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
-</div>
-
-</div>
-
-<footer>
-<p>© 2026 Emergency Support Fund</p>
-</footer>
-
-</div>
-
-<div id="notif">✔️ Someone just made a contribution</div>
-
-<script>
-// Crypto
-function toggleCrypto(){
-  var box = document.getElementById("cryptoBox");
-  box.style.display = box.style.display === "block" ? "none" : "block";
-}
-
-// Messages live
-var messages = [
-  "✔️ Someone just supported this initiative",
-  "✔️ A contribution was received",
-  "✔️ Supporters are helping now"
-];
-
-setInterval(function(){
-  var el = document.getElementById("liveBox");
-  if(el){
-    el.innerText = messages[Math.floor(Math.random()*messages.length)];
-  }
-}, 4000);
-
-// Générateur dons
-var firstNames = ["Emma","John","Lucas","Sarah","David","Noah","Olivia"];
-var lastNames = ["Johnson","Smith","Brown","Miller","Wilson"];
-var amounts = [1,2,3,5,10];
-
-function showDonation(){
-  var name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " +
-             lastNames[Math.floor(Math.random()*lastNames.length)];
-  var amount = amounts[Math.floor(Math.random()*amounts.length)];
-
-  var el = document.getElementById("donations");
-  if(el){
-    el.innerText = "✔️ " + name + " just contributed $" + amount;
-  }
-}
-setInterval(showDonation, 4000);
-
-// BULLE DONATEUR (VERSION ANGLAIS)
-function showBubble(){
-  var name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " +
-             lastNames[Math.floor(Math.random()*lastNames.length)];
-  var amount = amounts[Math.floor(Math.random()*amounts.length)];
-
-  var bubble = document.getElementById("donBubble");
-
-  var texts = [
-    name + " just contributed $" + amount,
-    name + " supported this initiative",
-    "A donation of $" + amount + " was received"
-  ];
-
-  bubble.innerText = texts[Math.floor(Math.random()*texts.length)];
-  bubble.style.display = "block";
-
-  setTimeout(function(){
-    bubble.style.display = "none";
-  }, 4000);
-}
-
-setInterval(showBubble, 8000);
-</script>
-
-</body>
-</html>
+‎<!DOCTYPE html>
+‎<html lang="en">
+‎<head>
+‎<meta charset="UTF-8">
+‎<meta name="viewport" content="width=device-width, initial-scale=1.0">
+‎<title>Emergency Support Fund</title>
+‎
+‎<style>
+‎body {
+‎  margin:0;
+‎  font-family:Arial, sans-serif;
+‎  background:#f4f6f8;
+‎  display:flex;
+‎  justify-content:center;
+‎  align-items:center;
+‎  min-height:100vh;
+‎}
+‎
+‎.container {
+‎  max-width:430px;
+‎  width:100%;
+‎  padding:20px;
+‎}
+‎
+‎.card {
+‎  background:white;
+‎  padding:15px 25px 25px;
+‎  border-radius:20px;
+‎  box-shadow:0 10px 30px rgba(0,0,0,0.1);
+‎  text-align:center;
+‎}
+‎
+‎.logo {
+‎  width:100px;
+‎  display:block;
+‎  margin:0 auto -20px auto;
+‎}
+‎
+‎h1 {
+‎  margin:0;
+‎  line-height:1.1;
+‎}
+‎
+‎.subtitle {
+‎  color:#28a745;
+‎  font-weight:bold;
+‎}
+‎
+‎.btn {
+‎  display:block;
+‎  margin:12px 0;
+‎  padding:15px;
+‎  border-radius:12px;
+‎  text-decoration:none;
+‎  color:white;
+‎  font-weight:bold;
+‎  font-size:16px;
+‎}
+‎
+‎.card-btn { background:#28a745; }
+‎.crypto-btn { background:#f7931a; border:none; }
+‎
+‎.small {
+‎  font-size:13px;
+‎  color:#555;
+‎}
+‎
+‎.section {
+‎  margin-top:15px;
+‎}
+‎
+‎footer {
+‎  margin-top:20px;
+‎  background:#0b1b3f;
+‎  color:white;
+‎  padding:20px;
+‎  border-radius:15px;
+‎  font-size:13px;
+‎}
+‎
+‎footer a {
+‎  color:white;
+‎  text-decoration:none;
+‎}
+‎
+‎footer a:hover {
+‎  text-decoration:underline;
+‎}
+‎
+‎#notif {
+‎  position:fixed;
+‎  bottom:20px;
+‎  left:20px;
+‎  background:white;
+‎  padding:10px;
+‎  border-radius:10px;
+‎  box-shadow:0 5px 15px rgba(0,0,0,0.2);
+‎  font-size:12px;
+‎  display:none;
+‎}
+‎
+‎/* Clignotant */
+‎@keyframes blink {
+‎  0% { opacity:1; }
+‎  50% { opacity:0.4; }
+‎  100% { opacity:1; }
+‎}
+‎
+‎.blink {
+‎  animation: blink 1.5s infinite;
+‎  color:#007BFF;
+‎  font-weight:bold;
+‎}
+‎</style>
+‎</head>
+‎
+‎<body>
+‎
+‎<div class="container">
+‎<div class="car
