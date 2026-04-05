@@ -36,10 +36,7 @@ body {
   margin:0 auto -20px auto;
 }
 
-h1 {
-  margin:0;
-  line-height:1.1;
-}
+h1 { margin:0; }
 
 .subtitle {
   color:#28a745;
@@ -54,20 +51,12 @@ h1 {
   text-decoration:none;
   color:white;
   font-weight:bold;
-  font-size:16px;
 }
 
 .card-btn { background:#28a745; }
 .crypto-btn { background:#f7931a; border:none; }
 
-.small {
-  font-size:13px;
-  color:#555;
-}
-
-.section {
-  margin-top:15px;
-}
+.small { font-size:13px; color:#555; }
 
 footer {
   margin-top:20px;
@@ -76,27 +65,6 @@ footer {
   padding:20px;
   border-radius:15px;
   font-size:13px;
-}
-
-footer a {
-  color:white;
-  text-decoration:none;
-}
-
-footer a:hover {
-  text-decoration:underline;
-}
-
-#notif {
-  position:fixed;
-  bottom:20px;
-  left:20px;
-  background:white;
-  padding:10px;
-  border-radius:10px;
-  box-shadow:0 5px 15px rgba(0,0,0,0.2);
-  font-size:12px;
-  display:none;
 }
 
 /* Clignotant */
@@ -112,7 +80,7 @@ footer a:hover {
   font-weight:bold;
 }
 
-/* ===== BULLE DON ===== */
+/* BULLE DONATEUR */
 #donBubble {
   position:fixed;
   top:10px;
@@ -133,10 +101,7 @@ footer a:hover {
 
 <body>
 
-<!-- BULLE DONATEUR -->
-<div id="donBubble">
-  Merci Jeanne pour votre don de 50 €
-</div>
+<div id="donBubble"></div>
 
 <div class="container">
 <div class="card">
@@ -149,17 +114,12 @@ footer a:hover {
 Some families struggle to access basic food every day.
 </p>
 
-<p style="font-size:14px;">
-Your support can help provide real meals today ❤️
-</p>
+<p>Your support can help provide real meals today ❤️</p>
 
-<p class="blink" style="font-size:14px;">
-Even $1 can make a real difference.
-</p>
+<p class="blink">Even $1 can make a real difference.</p>
 
 <p class="small">
 Thousands of families struggle to access basic food daily.
-Your support can help provide essential assistance.
 </p>
 
 <p style="color:red;">⚠️ Urgent support needed today</p>
@@ -175,15 +135,6 @@ Your support can help provide essential assistance.
 ✔️ Recent contributions
 </div>
 
-<div class="section">
-<b>Impact</b>
-<p class="small">
-🟢 Food assistance<br>
-🔘 Basic needs support<br>
-🌐 Helping families in difficult conditions
-</p>
-</div>
-
 <a href="https://buy.stripe.com/bJedR9gpQ9Bx9et0JZ8ww00" class="btn card-btn">
 ❤️ Donate securely (Card)
 </a>
@@ -192,63 +143,15 @@ Your support can help provide essential assistance.
 🪙 Donate with Crypto (USDT)
 </button>
 
-<div id="cryptoBox" style="display:none; margin-top:15px;">
-<p class="small"><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
-
-<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1"
-style="border-radius:10px;">
-
-<p style="font-size:11px; color:gray;">
-Network: TRC20 (low fees)
-</p>
-
-<button onclick="copyAddress()" style="
-margin-top:10px;
-padding:10px;
-background:#28a745;
-color:white;
-border:none;
-border-radius:8px;
-font-weight:bold;">
-Copy Address
-</button>
-</div>
-
-<p class="small">Takes less than 30 seconds • Secure checkout</p>
-
-<div class="section">
-<b>Transparency</b>
-<p class="small">
-Donations are voluntary and used to support general assistance efforts.
-</p>
-</div>
-
-<div class="section">
-<b>Contact</b>
-<p class="small">support@supportaids.org</p>
+<div id="cryptoBox" style="display:none;">
+<p><b id="usdt">TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1</b></p>
+<img src="https://api.qrserver.com/v1/create-qr-code/?size=160x160&data=TQL1ZQkNopSq13rYxhDkJXcbYstBALmhK1">
 </div>
 
 </div>
 
 <footer>
-<p><b>About</b></p>
-<p><a href="about.html">About this initiative</a></p>
-
-<p><b>Legal</b></p>
-<p>
-<a href="privacy.html">Privacy Policy</a> •
-<a href="terms.html">Terms of Use</a> •
-<a href="cookies.html">Cookies</a>
-</p>
-
-<p><b>Resources</b></p>
-<p>
-<a href="transparency.html">Transparency</a> •
-<a href="faq.html">FAQ</a> •
-<a href="usage.html">How donations are used</a>
-</p>
-
-<p style="margin-top:10px;">© 2026 Emergency Support Fund</p>
+<p>© 2026 Emergency Support Fund</p>
 </footer>
 
 </div>
@@ -256,43 +159,29 @@ Donations are voluntary and used to support general assistance efforts.
 <div id="notif">✔️ Someone just made a contribution</div>
 
 <script>
-// Crypto toggle
+// Crypto
 function toggleCrypto(){
   var box = document.getElementById("cryptoBox");
   box.style.display = box.style.display === "block" ? "none" : "block";
 }
 
-// Copy wallet
-function copyAddress(){
-  var text = document.getElementById("usdt").innerText;
-  navigator.clipboard.writeText(text);
-  alert("Address copied!");
-}
-
-// Live activity
+// Messages live
 var messages = [
   "✔️ Someone just supported this initiative",
   "✔️ A contribution was received",
-  "✔️ Supporters are helping now",
-  "✔️ New donation activity",
-  "✔️ People are contributing worldwide"
+  "✔️ Supporters are helping now"
 ];
 
 setInterval(function(){
-  document.getElementById("liveBox").innerText =
-  messages[Math.floor(Math.random()*messages.length)];
+  var el = document.getElementById("liveBox");
+  if(el){
+    el.innerText = messages[Math.floor(Math.random()*messages.length)];
+  }
 }, 4000);
 
-// Notification popup
-setInterval(function(){
-  var notif = document.getElementById("notif");
-  notif.style.display="block";
-  setTimeout(()=>notif.style.display="none",3000);
-}, 8000);
-
-// ===== GENERATEUR DON =====
-var firstNames = ["John","Emma","Michael","Sarah","David","Lucas","Sophia"];
-var lastNames = ["Smith","Brown","Johnson","Williams","Jones","Miller"];
+// Générateur dons
+var firstNames = ["Emma","John","Lucas","Sarah","David","Noah","Olivia"];
+var lastNames = ["Johnson","Smith","Brown","Miller","Wilson"];
 var amounts = [1,2,3,5,10];
 
 function showDonation(){
@@ -300,23 +189,28 @@ function showDonation(){
              lastNames[Math.floor(Math.random()*lastNames.length)];
   var amount = amounts[Math.floor(Math.random()*amounts.length)];
 
-  document.getElementById("donations").innerText =
-  "✔️ " + name + " just contributed $" + amount;
+  var el = document.getElementById("donations");
+  if(el){
+    el.innerText = "✔️ " + name + " just contributed $" + amount;
+  }
 }
-
 setInterval(showDonation, 4000);
 
-// ===== BULLE DON =====
-var firstNamesBubble = ["Jeanne","Emma","Lucas","Sarah","David","Noah","Olivia"];
-var amountsBubble = [1,2,3,5,10,20,50];
-
+// BULLE DONATEUR (VERSION ANGLAIS)
 function showBubble(){
-  var name = firstNamesBubble[Math.floor(Math.random()*firstNamesBubble.length)];
-  var amount = amountsBubble[Math.floor(Math.random()*amountsBubble.length)];
+  var name = firstNames[Math.floor(Math.random()*firstNames.length)] + " " +
+             lastNames[Math.floor(Math.random()*lastNames.length)];
+  var amount = amounts[Math.floor(Math.random()*amounts.length)];
 
   var bubble = document.getElementById("donBubble");
 
-  bubble.innerText = "Merci " + name + " pour votre don de " + amount + " €";
+  var texts = [
+    name + " just contributed $" + amount,
+    name + " supported this initiative",
+    "A donation of $" + amount + " was received"
+  ];
+
+  bubble.innerText = texts[Math.floor(Math.random()*texts.length)];
   bubble.style.display = "block";
 
   setTimeout(function(){
