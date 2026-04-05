@@ -249,11 +249,11 @@ function copyAddress(){
 
 // Live activity messages
 var messages = [
-  "✔️ Someone just supported this initiative",
-  "✔️ A contribution was received",
-  "✔️ Supporters are helping now",
-  "✔️ New donation activity",
-  "✔️ People are contributing worldwide"
+  " Someone just supported this initiative",
+  " A contribution was received",
+  " Supporters are helping now",
+  " New donation activity",
+  " People are contributing worldwide"
 ];
 
 setInterval(function(){
@@ -279,7 +279,7 @@ function showDonation(){
   var amount = amounts[Math.floor(Math.random()*amounts.length)];
 
   document.getElementById("donations").innerText =
-  "✔️ " + name + " just contributed $" + amount;
+  "🫂 " + name + " just contributed $" + amount;
 }
 
 setInterval(showDonation, 4000);
