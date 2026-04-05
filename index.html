@@ -111,10 +111,32 @@ footer a:hover {
   color:#007BFF;
   font-weight:bold;
 }
+
+/* ===== BULLE DON ===== */
+#donBubble {
+  position:fixed;
+  top:10px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#e6f0ea;
+  padding:12px 20px;
+  border-radius:30px;
+  font-weight:bold;
+  font-size:14px;
+  color:#0b1b3f;
+  box-shadow:0 5px 15px rgba(0,0,0,0.1);
+  display:none;
+  z-index:999;
+}
 </style>
 </head>
 
 <body>
+
+<!-- BULLE DONATEUR -->
+<div id="donBubble">
+  Merci Jeanne pour votre don de 50 €
+</div>
 
 <div class="container">
 <div class="card">
@@ -247,7 +269,7 @@ function copyAddress(){
   alert("Address copied!");
 }
 
-// Live activity messages
+// Live activity
 var messages = [
   "✔️ Someone just supported this initiative",
   "✔️ A contribution was received",
@@ -268,7 +290,7 @@ setInterval(function(){
   setTimeout(()=>notif.style.display="none",3000);
 }, 8000);
 
-// ===== GENERATEUR DE DON =====
+// ===== GENERATEUR DON =====
 var firstNames = ["John","Emma","Michael","Sarah","David","Lucas","Sophia"];
 var lastNames = ["Smith","Brown","Johnson","Williams","Jones","Miller"];
 var amounts = [1,2,3,5,10];
@@ -283,6 +305,26 @@ function showDonation(){
 }
 
 setInterval(showDonation, 4000);
+
+// ===== BULLE DON =====
+var firstNamesBubble = ["Jeanne","Emma","Lucas","Sarah","David","Noah","Olivia"];
+var amountsBubble = [1,2,3,5,10,20,50];
+
+function showBubble(){
+  var name = firstNamesBubble[Math.floor(Math.random()*firstNamesBubble.length)];
+  var amount = amountsBubble[Math.floor(Math.random()*amountsBubble.length)];
+
+  var bubble = document.getElementById("donBubble");
+
+  bubble.innerText = "Merci " + name + " pour votre don de " + amount + " €";
+  bubble.style.display = "block";
+
+  setTimeout(function(){
+    bubble.style.display = "none";
+  }, 4000);
+}
+
+setInterval(showBubble, 8000);
 </script>
 
 </body>
